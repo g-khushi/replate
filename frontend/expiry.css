@@ -1,0 +1,126 @@
+/* Background Animation */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #f3e8ff, #e0c3fc, #f9f5ff, #e9d5ff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Animation Keyframes */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Page Heading */
+h2 {
+  text-align: center;
+  margin: 30px auto 20px;
+  background-color: rgba(111, 33, 177, 0.85);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 15px;
+  font-size: 28px;
+  width: fit-content;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Container */
+form {
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  margin: 20px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+label {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #4b0082;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="date"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  background-color: #a855f7;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #9333ea;
+}
+
+/* Reminder List Heading */
+h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #5b21b6;
+  margin-top: 40px;
+}
+
+/* Reminder List */
+#reminderList {
+  list-style-type: none;
+  padding: 0;
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+#reminderList li {
+  background: rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Buttons for Delete Mode */
+#enableDeleteMode,
+#deleteSelected {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #c084fc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#enableDeleteMode:hover,
+#deleteSelected:hover {
+  background-color: #a855f7;
+}

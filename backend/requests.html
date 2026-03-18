@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Food Requests - RePlate</title>
+  <style>
+     .list-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.card {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+  </style>
+</head>
+<body>
+  <header><h1>Food Requests</h1></header>
+  <main class="list-container" id="requestList">
+    <!-- Requests will be loaded here -->
+  </main>
+
+  <script>
+    async function loadRequests() {
+      try {
+        const response = await fetch('http://localhost:4000/api/requests');
+        const requests = await response.json();
+
+        const requestList = document.getElementById('requestList');
+        requestList.innerHTML = '';
+
+        if (requests.length === 0) {
+          requestList.innerHTML = '<p>No requests found.</p>';
+          return;
+        }
+
+        requests.forEach(req => {
+          const div = document.createElement('div');
+          div.className = 'card';
+          div.innerHTML = `
+            <h3>${req.name}</h3>
+            <p><strong>Contact:</strong> ${req.contact}</p>
+            <p><strong>Food Needed:</strong> ${req.foodNeeded}</p>
+            <p><strong>Location:</strong> ${req.location}</p>
+            <p><em>Submitted: ${new Date(req.createdAt).toLocaleString()}</em></p>
+          `;
+          requestList.appendChild(div);
+        });
+      } catch (error) {
+        console.error('Error loading requests:', error);
+        document.getElementById('requestList').innerHTML = '<p>Failed to load requests.</p>';
+      }
+    }
+
+    loadRequests();
+  </script>
+</body>
+</html>

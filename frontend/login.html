@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login & Signup - Waste Analyzer</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2 id="formTitle">Login</h2>
+    <form id="authForm">
+      <input type="text" placeholder="Username" id="username" required>
+      <input type="password" placeholder="Password" id="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="authStatus"></p>
+    <p>
+      <span id="togglePrompt">Don't have an account?</span>
+      <button id="toggleForm">Switch to Signup</button>
+    </p>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

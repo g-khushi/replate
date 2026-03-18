@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Expiry Reminder</title>
+  <link rel="stylesheet" href="expiry.css" />
+</head>
+<body>
+  <h2>Food Expiry Reminder</h2>
+
+  <form id="reminderForm">
+    <label>Food Name:
+      <input type="text" id="food" required />
+    </label><br><br>
+
+    <label>Expiry Date:
+      <input type="date" id="expiryDate" required />
+    </label><br><br>
+
+    <button type="submit">Add Reminder</button>
+  </form>
+<h3>Your Food Reminders</h3>
+  <ul id="reminderList"></ul>
+
+  <button id="enableDeleteMode">Select to Delete Items</button>
+  <button id="deleteSelected" style="display:none;">Delete Selected</button>
+  <script src="expiry.js"></script>
+</body>
+</html>

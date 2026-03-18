@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Donations List - RePlate</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 20px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      color: #333;
+    }
+
+    th {
+      background-color: rgba(168, 85, 247, 0.8);
+      color: white;
+    }
+
+    tr:hover {
+      background-color: rgba(233, 213, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>All Food Donations</h1>
+  </header>
+
+  <table id="donationsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Food</th>
+        <th>Location</th>
+        <th>Donated At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Donation rows will go here -->
+    </tbody>
+  </table>
+
+  <script>
+    async function fetchDonations() {
+      try {
+        const res = await fetch('http://localhost:5500/api/donations');
+        const donations = await res.json();
+
+        const tbody = document.querySelector('#donationsTable tbody');
+        tbody.innerHTML = '';
+
+        if (donations.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5">No donations found.</td></tr>';
+          return;
+        }
+
+        donations.forEach(donation => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${donation.name}</td>
+            <td>${donation.contact}</td>
+            <td>${donation.food}</td>
+            <td>${donation.location}</td>
+            <td>${new Date(donation.createdAt).toLocaleString()}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      } catch (err) {
+        const tbody = document.querySelector('#donationsTable tbody');
+        tbody.innerHTML = '<tr><td colspan="5">Failed to load donations.</td></tr>';
+      }
+    }
+
+    fetchDonations();
+  </script>
+</body>
+</html>

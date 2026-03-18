@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Donate Food - RePlate</title>
+  <link rel="stylesheet" href="donate.css" />
+</head>
+<body>
+  <header><h1>Donate Food</h1></header>
+
+  <main class="form-container">
+    <form id="donationForm">
+      <label>Donor Name:
+        <input type="text" id="name" name="name" required />
+      </label>
+      <label>Contact:
+        <input type="text" id="contact" name="contact" required />
+      </label>
+      <label>Food Description:
+        <textarea id="food" name="food" required></textarea>
+      </label>
+      <label>Quantity(Plates):
+        <input type="text" id="quantity" name="quantity" required />
+      </label>
+      <label>Location:
+        <input type="text" id="location" name="location" required />
+      </label>
+      <button type="submit">Submit Donation</button>
+    </form>
+    <div id="donationResult" style="display: none; margin-top: 20px;">
+      <p><strong>Donation successful!</strong></p>
+      
+    </div>
+
+  </main>
+
+  <script src="donate.js"></script>
+</body>
+</html>

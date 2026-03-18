@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Waste Analyzer</title>
+  <link rel="stylesheet" href="waste_analyzer.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Waste Analyzer</h2>
+    <form id="wasteForm">
+      <input type="text" id="foodName" placeholder="Food Name" required>
+      <input type="number" id="produced" placeholder="Food Produced (kg)" required>
+      <input type="number" id="wasted" placeholder="Food Wasted (kg)" required>
+      <input type="number" id="persons" placeholder="Number of Persons" required>
+      
+      <select id="mealType" required>
+        <option value="">Select Meal Type</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+      </select>
+      
+      <select id="occasion" required>
+        <option value="">Select Occasion</option>
+        <option value="Daily Meal">Daily Meal</option>
+        <option value="Event">Event</option>
+        <option value="Festival">Festival</option>
+      </select>
+      
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="submitStatus"></p>
+
+    <button onclick="fetchChart()" style="margin-top: 20px;">📊 View Analysis</button>
+    <canvas id="wasteChart" width="400" height="200" style="margin-top: 20px;"></canvas>
+  </div>
+
+  <script src="waste_analyzer.js"></script>
+</body>
+</html>
