@@ -47,6 +47,28 @@ app.get('/api/donations', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch donations' });
   }
 });
+// Save Donation
+app.post('/api/donate', async (req, res) => {
+  try {
+    const { food, quantity, location, name, contact } = req.body;
+
+    const donation = new Donation({
+      food,
+      quantity,
+      location,
+      name,
+      contact
+    });
+
+    await donation.save();
+
+    res.json({ message: "Donation saved successfully" });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error saving donation" });
+  }
+});
 
 
 // =======================
@@ -164,7 +186,7 @@ app.delete('/api/reminders/:id', async (req, res) => {
 // ==============================
 app.post("/api/waste-analyze", async (req, res) => {
   try {
-    const response = await fetch("http://localhost:5500/predict", {
+    const response = await //fetch("http://localhost:5500/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(req.body)
