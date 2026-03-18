@@ -47,28 +47,6 @@ app.get('/api/donations', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch donations' });
   }
 });
-// Save Donation
-app.post('/api/donate', async (req, res) => {
-  try {
-    const { food, quantity, location, name, contact } = req.body;
-
-    const donation = new Donation({
-      food,
-      quantity,
-      location,
-      name,
-      contact
-    });
-
-    await donation.save();
-
-    res.json({ message: "Donation saved successfully" });
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Error saving donation" });
-  }
-});
 
 
 // =======================
